@@ -14,9 +14,10 @@ export interface Paper {
   project?: string;
   huggingface?: string;
   doi?: string;
+  stars?: number;
   tags: string[];
   featured?: boolean;
-  relatedRepos?: { name: string; url: string; description: string }[];
+  relatedRepos?: { name: string; url: string; description: string; stars?: number }[];
 }
 
 export const papers: Paper[] = [
@@ -57,6 +58,7 @@ export const papers: Paper[] = [
       "LLMEval-Fair addresses robustness and fairness concerns in LLM evaluation through a 30-month longitudinal study. Built on a proprietary bank of 220,000 graduate-level questions across 13 academic disciplines, it dynamically samples unseen test sets for each evaluation run. Its automated pipeline ensures integrity via contamination-resistant data curation, a novel anti-cheating architecture, and a calibrated LLM-as-a-judge process achieving 90% agreement with human experts. A study of nearly 60 leading models reveals performance ceilings and exposes data contamination vulnerabilities undetectable by static benchmarks.",
     arxiv: "https://arxiv.org/abs/2508.05452",
     github: "https://github.com/llmeval/LLMEval-Fair",
+    stars: 37,
     project: "http://llmeval.com/",
     tags: ["evaluation", "fairness", "robustness", "generative QA", "longitudinal study"],
     featured: true,
@@ -87,11 +89,12 @@ export const papers: Paper[] = [
     authorNotes: "* Equal Contribution, † Corresponding Author",
     venue: "EMNLP 2025 Findings",
     year: 2025,
-    abstractZh: "LLMEval-Med 提出了一个全面的、经医生验证的基准，用于评估大语言模型在真实临床任务上的表现。涵盖五个核心医学领域——医学知识、医学语言理解、医学推理、医学伦理与安全、医学文本生成——包含2,996道来自真实电子病历和专家设计临床场景的题目。引入结合专家清单的LLM-as-Judge自动评测流水线，通过人机一致性分析验证。评测了13个大模型（专用医学模型、开源模型和闭源模型）。",
+    abstractZh: "LLMEval-Med 提出一个全面的、经医生验证的基准，用于评估大语言模型在真实临床任务上的表现。涵盖五个核心医学领域（医学知识、医学语言理解、医学推理、医学伦理与安全、医学文本生成），包含2,996道来自真实电子病历和专家设计临床场景的题目。引入结合专家清单的LLM-as-Judge自动评测流水线，通过人机一致性分析验证。评测了13个大模型。",
     abstract:
-      "LLMEval-Med presents a comprehensive, physician-validated benchmark for evaluating LLMs on real-world clinical tasks. It covers five core medical areas — Medical Knowledge, Medical Language Understanding, Medical Reasoning, Medical Ethics and Safety, and Medical Text Generation — with 2,996 questions created from real-world electronic health records and expert-designed clinical scenarios. The work introduces an automated evaluation pipeline incorporating expert-developed checklists into an LLM-as-Judge framework, validated through human-machine agreement analysis. 13 LLMs across three categories (specialized medical, open-source, and closed-source) are evaluated.",
+      "LLMEval-Med is a physician-validated benchmark for evaluating LLMs on real-world clinical tasks. It covers five core medical areas (Medical Knowledge, Language Understanding, Reasoning, Ethics & Safety, Text Generation) with 2,996 questions from real electronic health records and expert-designed clinical scenarios. An automated evaluation pipeline with expert-developed checklists is validated through human-machine agreement analysis. 13 LLMs across specialized, open-source, and closed-source categories are evaluated.",
     arxiv: "https://arxiv.org/abs/2506.04078",
     github: "https://github.com/llmeval/LLMEval-Med",
+    stars: 25,
     huggingface: "https://huggingface.co/datasets/HuayuSha/LLMeval-Med",
     tags: ["medical", "clinical", "physician validation", "LLM-as-Judge"],
     featured: true,
@@ -113,9 +116,9 @@ export const papers: Paper[] = [
     authorNotes: "* Equal Contribution, † Corresponding Author",
     venue: "AAAI 2024",
     year: 2024,
-    abstractZh: "本文聚焦大语言模型评测的第三个关键问题——\"如何评测\"——通过对比人工评测和自动评测中的多种评价标准、评估者类型、评分方法和排序系统。利用现场专家、众包标注员、公众志愿者和GPT-4，评测了20个大模型。共2,186人参与，生成243,337条人工标注和57,511条自动评测结果。论文提出LLMEval数据集（包含LLMEval-1和LLMEval-2两期评测数据）并得出10条结论。",
+    abstractZh: "本文聚焦大语言模型评测的第三个关键问题「如何评测」，通过对比人工和自动评测中的多种评价标准、评估者类型、评分方法和排序系统。利用现场专家、众包标注员、公众志愿者和GPT-4评测了20个大模型。共2,186人参与，生成243,337条人工标注和57,511条自动评测结果。论文提出LLMEval数据集（包含两期评测数据）并得出10条结论。",
     abstract:
-      "This paper addresses the third crucial question in LLM evaluation — \"how to evaluate\" — by analyzing evaluation methods through comparing various criteria with both manual and automatic evaluation. Utilizing onsite staff, crowd-sourcing workers, public annotators, and GPT-4 with different scoring methods and ranking systems, we evaluate 20 LLMs. A total of 2,186 individuals participated, generating 243,337 manual annotations and 57,511 automatic evaluation results. The paper proposes the LLMEval dataset (comprising data from both LLMEval-1 and LLMEval-2 evaluation rounds) and draws 10 conclusions providing insights for future LLM evaluation practices.",
+      "This paper tackles the third crucial question in LLM evaluation: how to evaluate. We compare various criteria with both manual and automatic evaluation, utilizing onsite staff, crowd-sourcing workers, public annotators, and GPT-4 across different scoring and ranking systems. 20 LLMs are evaluated with 2,186 participants generating 243,337 manual annotations and 57,511 automated results. The paper proposes the LLMEval dataset (from LLMEval-1 and LLMEval-2 rounds) and draws 10 conclusions for future evaluation practices.",
     arxiv: "https://arxiv.org/abs/2312.07398",
     doi: "https://doi.org/10.1609/aaai.v38i17.29934",
     tags: ["evaluation methodology", "crowdsourcing", "annotation", "scoring", "ranking"],
@@ -124,12 +127,14 @@ export const papers: Paper[] = [
       {
         name: "LLMEval-1",
         url: "https://github.com/llmeval/LLMEval-1",
-        description: "Phase I dataset — 17 categories, 453 questions, 2,186 annotators for Chinese LLM evaluation",
+        stars: 113,
+        description: "Phase I dataset: 17 categories, 453 questions, 2,186 annotators for Chinese LLM evaluation",
       },
       {
         name: "LLMEval-2",
         url: "https://github.com/llmeval/LLMEval-2",
-        description: "Phase II dataset — professional domain evaluation across 12 academic disciplines, 480 questions",
+        stars: 71,
+        description: "Phase II dataset: professional domain evaluation across 12 academic disciplines, 480 questions",
       },
     ],
   },
@@ -144,6 +149,7 @@ export const papers: Paper[] = [
     abstract:
       "This evaluation utilizes the 2024 Chinese National College Entrance Examination (Gaokao) mathematics papers as a benchmark for large language models. Fresh exam questions with high originality and confidentiality make them an excellent test set. The evaluation covers both New Paper I and New Paper II, testing models with both LaTeX and escape-character formatted prompts to reveal sensitivity to prompt formatting in mathematical contexts.",
     github: "https://github.com/llmeval/Llmeval-Gaokao2024-Math",
+    stars: 19,
     tags: ["mathematics", "Gaokao", "prompt format"],
     featured: false,
   },
