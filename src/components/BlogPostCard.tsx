@@ -3,8 +3,13 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { BlogPost } from "@/data/blog";
+import { useLanguage } from "@/lib/i18n";
 
 export function BlogPostCard({ post, index = 0 }: { post: BlogPost; index?: number }) {
+  const { locale, t } = useLanguage();
+  const title = (locale === "zh" && post.titleZh) || post.title;
+  const excerpt = (locale === "zh" && post.excerptZh) || post.excerpt;
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +22,7 @@ export function BlogPostCard({ post, index = 0 }: { post: BlogPost; index?: numb
       >
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <time dateTime={post.date}>
-            {new Date(post.date).toLocaleDateString("en-US", {
+            {new Date(post.date).toLocaleDateString(locale === "zh" ? "zh-CN" : "en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
@@ -28,10 +33,10 @@ export function BlogPostCard({ post, index = 0 }: { post: BlogPost; index?: numb
         </div>
 
         <h3 className="mt-2 text-xl font-semibold text-foreground transition-colors group-hover:text-accent">
-          {post.title}
+          {title}
         </h3>
 
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{excerpt}</p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">
           {post.tags.map((tag) => (
@@ -42,7 +47,7 @@ export function BlogPostCard({ post, index = 0 }: { post: BlogPost; index?: numb
         </div>
 
         <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent">
-          Read more
+          {t("blog.readMore")}
           <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
