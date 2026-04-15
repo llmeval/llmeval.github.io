@@ -95,8 +95,8 @@ export function PaperCard({ paper, index = 0 }: { paper: Paper; index?: number }
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent/80"
           >
-            <svg className="h-4 w-4" viewBox="0 0 95 88" fill="currentColor">
-              <path d="M47.2 0C21.1 0 0 21.1 0 47.2s21.1 47.2 47.2 47.2 47.2-21.1 47.2-47.2S73.3 0 47.2 0zm0 88.5C24.2 88.5 5.5 69.8 5.5 46.8S24.2 5.1 47.2 5.1s41.7 18.7 41.7 41.7-18.7 41.7-41.7 41.7z" />
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
             </svg>
             Dataset
           </a>
