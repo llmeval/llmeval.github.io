@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     title: "LLMEval-Fair Accepted to ACL 2026 Main Conference",
     date: "2026-04-10",
     excerpt:
-      "Our paper on robust and fair LLM evaluation has been accepted to ACL 2026. With 200K+ generative questions across 13 disciplines and anti-cheating mechanisms, LLMEval-Fair sets a new standard for trustworthy model benchmarking.",
+      "Our paper on robust and fair LLM evaluation has been accepted to ACL 2026. With 220K generative questions across 13 disciplines and anti-cheating mechanisms, LLMEval-Fair sets a new standard for trustworthy model benchmarking.",
     tags: ["ACL 2026", "LLMEval-Fair"],
     author: "LLMEval Team",
     content: `
@@ -30,7 +30,7 @@ Existing LLM benchmarks face a fundamental challenge: **test set leakage**. Publ
 
 ### Anti-Cheating Mechanisms
 - **Non-public question sources** — Questions sourced from non-public channels (undergraduate homework, mid-term/final exams, graduate entrance exams in PDF/Word format) to minimize pre-training contamination
-- **Random sampling** — Each model completes 1,000 questions randomly sampled from a pool of 200,000+
+- **Random sampling** — Each model completes 1,000 questions randomly sampled from a proprietary bank of 220,000
 - **Non-repeating evaluations** — Models from the same institution receive different question sets across evaluations
 - **Sequential online delivery** — Questions sent one-at-a-time, preventing bulk crawling
 
@@ -47,7 +47,7 @@ The benchmark covers **13 academic disciplines** as defined by the Ministry of E
 
 ## Current Leaderboard
 
-As of December 2025, **50+ models** have been evaluated from major organizations including OpenAI, Google, Anthropic, DeepSeek, ByteDance, Alibaba, Zhipu AI, Moonshot AI, and more. See the full rankings on our [Leaderboard](/leaderboard) page.
+As of December 2025, **nearly 60 models** have been evaluated from major organizations including OpenAI, Google, Anthropic, DeepSeek, ByteDance, Alibaba, Zhipu AI, Moonshot AI, and more. See the full rankings on our [Leaderboard](/leaderboard) page.
 
 - **Paper**: [arXiv:2508.05452](https://arxiv.org/abs/2508.05452)
 - **Code & Data**: [GitHub](https://github.com/llmeval/LLMEval-Fair)

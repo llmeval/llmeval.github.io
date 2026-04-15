@@ -50,7 +50,7 @@ export const papers: Paper[] = [
     venue: "ACL 2026 Main Conference",
     year: 2026,
     abstract:
-      "LLMEval-Fair addresses robustness and fairness concerns in LLM evaluation through a large-scale longitudinal study. It features approximately 200,000 standardized generative question-answering items across 13 academic disciplines defined by the Ministry of Education. Unlike multiple-choice benchmarks, all questions are generative — covering short answer, calculation, true/false, analysis, and essay formats. The benchmark prevents cheating through random sampling with non-repeating questions for same-institution models, sequential online evaluation, and non-public question sources. Both relative and absolute scoring are used, with GPT-4 Turbo as the evaluation model.",
+      "LLMEval-Fair addresses robustness and fairness concerns in LLM evaluation through a 30-month longitudinal study. Built on a proprietary bank of 220,000 graduate-level questions across 13 academic disciplines, it dynamically samples unseen test sets for each evaluation run. Its automated pipeline ensures integrity via contamination-resistant data curation, a novel anti-cheating architecture, and a calibrated LLM-as-a-judge process achieving 90% agreement with human experts. A study of nearly 60 leading models reveals performance ceilings and exposes data contamination vulnerabilities undetectable by static benchmarks.",
     arxiv: "https://arxiv.org/abs/2508.05452",
     github: "https://github.com/llmeval/LLMEval-Fair",
     project: "http://llmeval.com/",
@@ -110,19 +110,18 @@ export const papers: Paper[] = [
       "This paper addresses the third crucial question in LLM evaluation — \"how to evaluate\" — by analyzing evaluation methods through comparing various criteria with both manual and automatic evaluation. Utilizing onsite staff, crowd-sourcing workers, public annotators, and GPT-4 with different scoring methods and ranking systems, we evaluate 20 LLMs. A total of 2,186 individuals participated, generating 243,337 manual annotations and 57,511 automatic evaluation results. The paper proposes the LLMEval dataset (comprising data from both LLMEval-1 and LLMEval-2 evaluation rounds) and draws 10 conclusions providing insights for future LLM evaluation practices.",
     arxiv: "https://arxiv.org/abs/2312.07398",
     doi: "https://doi.org/10.1609/aaai.v38i17.29934",
-    github: "https://github.com/llmeval",
     tags: ["evaluation methodology", "crowdsourcing", "annotation", "scoring", "ranking"],
     featured: true,
     relatedRepos: [
       {
         name: "LLMEval-1",
         url: "https://github.com/llmeval/LLMEval-1",
-        description: "第一期评测数据集 — 17 大类、453 题，涵盖事实问答、阅读理解、摘要、数学、推理、诗歌生成、编程等",
+        description: "Phase I dataset — 17 categories, 453 questions, 2,186 annotators for Chinese LLM evaluation",
       },
       {
         name: "LLMEval-2",
         url: "https://github.com/llmeval/LLMEval-2",
-        description: "第二期评测数据集 — 12 个专业学科领域，480 题，包含客观题与主观题",
+        description: "Phase II dataset — professional domain evaluation across 12 academic disciplines, 480 questions",
       },
     ],
   },
