@@ -4,6 +4,7 @@ import { useState } from "react";
 import { LeaderboardTable } from "@/components/LeaderboardTable";
 import { Eval1Table } from "@/components/Eval1Table";
 import { Eval2Table } from "@/components/Eval2Table";
+import { MedTable } from "@/components/MedTable";
 
 const tabs = [
   {
@@ -11,6 +12,12 @@ const tabs = [
     label: "LLMEval-Fair",
     badge: "ACL 2026",
     description: "220K generative questions across 13 academic disciplines. Nearly 60 models evaluated over a 30-month longitudinal study.",
+  },
+  {
+    id: "med",
+    label: "LLMEval-Med",
+    badge: "EMNLP 2025",
+    description: "2,996 physician-validated clinical questions across 5 medical dimensions. 13 models evaluated (open-source, closed-source, specialized).",
   },
   {
     id: "eval1",
@@ -71,6 +78,7 @@ export default function LeaderboardPage() {
 
       {/* Tab content */}
       {activeTab === "fair" && <LeaderboardTable />}
+      {activeTab === "med" && <MedTable />}
       {activeTab === "eval1" && <Eval1Table />}
       {activeTab === "eval2" && <Eval2Table />}
 
@@ -83,6 +91,13 @@ export default function LeaderboardPage() {
             with a proprietary bank of 220,000 graduate-level generative questions. Each model completes 1,000 randomly sampled questions.
             Absolute score (0–100) represents raw performance; relative score measures the gap to the current SOTA model.
             Discipline scores use a 10-point scale. All evaluations use GPT-4 Turbo as the judge with a 0–3 point rubric per question.
+          </p>
+          <p>
+            <strong className="text-foreground">LLMEval-Med</strong> (EMNLP 2025) — 2,996 questions from real-world electronic health records
+            and expert-designed clinical scenarios across 5 dimensions: Medical Knowledge (MK), Medical Language Understanding (MLU),
+            Medical Reasoning (MR), Medical Safety & Ethics (MSE), and Medical Text Generation (MTG).
+            Scores represent usability rates (%) — the proportion of responses scoring 4+ on a 0–5 scale (automated) or 5+ on a 0–7 scale (MTG, human-evaluated).
+            Human-machine agreement rate: 92.36%.
           </p>
           <p>
             <strong className="text-foreground">LLMEval-1</strong> (AAAI 2024) — 17 categories, 453 questions evaluated on five dimensions:
