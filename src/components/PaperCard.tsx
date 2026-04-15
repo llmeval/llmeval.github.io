@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import type { Paper } from "@/data/papers";
+import { useLanguage } from "@/lib/i18n";
 
 export function PaperCard({ paper, index = 0 }: { paper: Paper; index?: number }) {
+  const { locale, t } = useLanguage();
+  const title = (locale === "zh" && paper.titleZh) || paper.title;
+  const abstract = (locale === "zh" && paper.abstractZh) || paper.abstract;
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +21,7 @@ export function PaperCard({ paper, index = 0 }: { paper: Paper; index?: number }
       </div>
 
       <h3 className="text-lg font-semibold leading-snug text-foreground group-hover:text-accent transition-colors">
-        {paper.title}
+        {title}
       </h3>
 
       <p className="mt-1 text-sm text-muted-foreground">
@@ -27,7 +31,7 @@ export function PaperCard({ paper, index = 0 }: { paper: Paper; index?: number }
         )}
       </p>
 
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">{paper.abstract}</p>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">{abstract}</p>
 
       <div className="mt-4 flex flex-wrap gap-1.5">
         {paper.tags.map((tag) => (
@@ -131,7 +135,7 @@ export function PaperCard({ paper, index = 0 }: { paper: Paper; index?: number }
 
       {paper.relatedRepos && paper.relatedRepos.length > 0 && (
         <div className="mt-4 border-t border-border pt-4">
-          <p className="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Related Datasets</p>
+          <p className="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">{t("papers.relatedDatasets")}</p>
           <div className="space-y-2">
             {paper.relatedRepos.map((repo) => (
               <a

@@ -11,6 +11,7 @@ import {
   type SortingState,
 } from "@tanstack/react-table";
 import { leaderboardData, type ModelScore } from "@/data/leaderboard";
+import { useLanguage } from "@/lib/i18n";
 
 function ScoreBadge({ score, max = 100 }: { score: number; max?: number }) {
   const pct = max === 10 ? score * 10 : score;
@@ -120,6 +121,7 @@ const columns: ColumnDef<ModelScore>[] = [
 ];
 
 export function LeaderboardTable() {
+  const { t } = useLanguage();
   const [sorting, setSorting] = useState<SortingState>([{ id: "absoluteScore", desc: true }]);
   const [globalFilter, setGlobalFilter] = useState("");
   const [showTop, setShowTop] = useState<number | null>(20);
@@ -159,24 +161,24 @@ export function LeaderboardTable() {
           </svg>
           <input
             type="text"
-            placeholder="Search models..."
+            placeholder={t("lb.search")}
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
             className="h-10 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent sm:w-64"
           />
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          {[null, "Open-source", "Closed-source"].map((t) => (
+          {[null, "Open-source", "Closed-source"].map((tp) => (
             <button
-              key={t ?? "type-all"}
-              onClick={() => setTypeFilter(t)}
+              key={tp ?? "type-all"}
+              onClick={() => setTypeFilter(tp)}
               className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
-                typeFilter === t
+                typeFilter === tp
                   ? "bg-accent text-accent-foreground"
                   : "bg-muted text-muted-foreground hover:text-foreground"
               }`}
             >
-              {t ?? "All Types"}
+              {tp ?? t("lb.allTypes")}
             </button>
           ))}
           <span className="mx-1 text-border">|</span>

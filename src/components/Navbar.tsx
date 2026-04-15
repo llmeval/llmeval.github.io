@@ -5,17 +5,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
+import { useLanguage } from "@/lib/i18n";
+import type { DictKey } from "@/lib/dict";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/papers", label: "Papers" },
-  { href: "/leaderboard", label: "Leaderboard" },
-  { href: "/blog", label: "Blog" },
+const navLinks: { href: string; key: DictKey }[] = [
+  { href: "/", key: "nav.home" },
+  { href: "/papers", key: "nav.papers" },
+  { href: "/leaderboard", key: "nav.leaderboard" },
+  { href: "/blog", key: "nav.blog" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -25,7 +29,6 @@ export function Navbar() {
           LLMEval
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -39,17 +42,18 @@ export function Navbar() {
                     : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 }`}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             );
           })}
-          <div className="ml-2">
+          <div className="ml-2 flex items-center gap-1.5">
+            <LanguageToggle />
             <ThemeToggle />
           </div>
         </div>
 
-        {/* Mobile menu button */}
         <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle />
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -69,7 +73,6 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile nav */}
       {mobileOpen && (
         <div className="border-t border-border px-4 pb-4 pt-2 md:hidden">
           {navLinks.map((link) => {
@@ -85,7 +88,7 @@ export function Navbar() {
                     : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 }`}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             );
           })}

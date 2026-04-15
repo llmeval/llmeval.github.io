@@ -3,8 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/i18n";
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
@@ -35,21 +38,19 @@ export function Hero() {
           </motion.div>
 
           <div className="mb-6 inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent">
-            FDU-NLP · AAAI 2024 · EMNLP 2025 · ACL 2026
+            {t("hero.badge")}
           </div>
 
           <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Comprehensive Evaluation for{" "}
+            {t("hero.title1")}
             <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">
-              Large Language Models
+              {t("hero.title2")}
             </span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-            LLMEval is a research series by{" "}
-            <span className="font-medium text-foreground">Fudan NLP Lab</span> dedicated to building
-            rigorous, fair, and comprehensive evaluation frameworks for LLMs — covering 13+ academic disciplines,
-            medical AI, and 220,000+ generative questions.
+            {t("hero.desc", { lab: "" })}
+            {/* inject lab name as styled span */}
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -57,7 +58,7 @@ export function Hero() {
               href="/papers"
               className="inline-flex h-12 items-center justify-center rounded-xl bg-accent px-6 text-sm font-semibold text-accent-foreground shadow-lg shadow-accent/25 transition-all hover:bg-accent/90 hover:shadow-xl hover:shadow-accent/30"
             >
-              Explore Papers
+              {t("hero.btn.papers")}
               <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -66,7 +67,7 @@ export function Hero() {
               href="/leaderboard"
               className="inline-flex h-12 items-center justify-center rounded-xl border border-border bg-card px-6 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
             >
-              View Leaderboard
+              {t("hero.btn.leaderboard")}
             </Link>
             <a
               href="https://github.com/llmeval"
@@ -82,7 +83,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,14 +90,14 @@ export function Hero() {
           className="mx-auto mt-20 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {[
-            { value: "5", label: "Research Projects" },
-            { value: "60", label: "Models Evaluated" },
-            { value: "220K+", label: "Evaluation Questions" },
-            { value: "13", label: "Academic Disciplines" },
+            { value: "5", key: "hero.stat.projects" as const },
+            { value: "60", key: "hero.stat.models" as const },
+            { value: "220K+", key: "hero.stat.questions" as const },
+            { value: "13", key: "hero.stat.disciplines" as const },
           ].map((stat) => (
-            <div key={stat.label} className="rounded-xl border border-border bg-card/50 p-4 text-center backdrop-blur">
+            <div key={stat.key} className="rounded-xl border border-border bg-card/50 p-4 text-center backdrop-blur">
               <div className="text-2xl font-bold text-accent">{stat.value}</div>
-              <div className="mt-1 text-xs text-muted-foreground">{stat.label}</div>
+              <div className="mt-1 text-xs text-muted-foreground">{t(stat.key)}</div>
             </div>
           ))}
         </motion.div>

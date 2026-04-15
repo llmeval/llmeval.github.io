@@ -1,18 +1,23 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  titleZh?: string;
   date: string;
   excerpt: string;
+  excerptZh?: string;
   tags: string[];
   author: string;
   content: string;
+  contentZh?: string;
 }
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "llmeval-fair-accepted-acl2026",
     title: "LLMEval-Fair Accepted to ACL 2026 Main Conference",
+    titleZh: "LLMEval-Fair 被 ACL 2026 主会录用",
     date: "2026-04-10",
+    excerptZh: "我们的鲁棒公平评测论文被 ACL 2026 主会录用。基于22万生成式题目、13个学科和反作弊机制，LLMEval-Fair 为可信模型评测树立新标准。",
     excerpt:
       "Our paper on robust and fair LLM evaluation has been accepted to ACL 2026. With 220K generative questions across 13 disciplines and anti-cheating mechanisms, LLMEval-Fair sets a new standard for trustworthy model benchmarking.",
     tags: ["ACL 2026", "LLMEval-Fair"],
@@ -57,7 +62,9 @@ As of December 2025, **nearly 60 models** have been evaluated from major organiz
   {
     slug: "llmeval-med-emnlp2025",
     title: "LLMEval-Med: Physician-Validated Clinical Benchmark (EMNLP 2025)",
+    titleZh: "LLMEval-Med：经医生验证的临床基准（EMNLP 2025）",
     date: "2025-11-01",
+    excerptZh: "LLMEval-Med 提出2,996道基于真实电子病历的临床题目，经医生验证，覆盖五个核心医学维度的评测基准。",
     excerpt:
       "LLMEval-Med introduces a benchmark of 2,996 clinical questions built from real electronic health records, with physician-validated evaluation covering five core medical dimensions.",
     tags: ["EMNLP 2025", "LLMEval-Med", "medical AI"],
@@ -115,7 +122,9 @@ The evaluation reveals important insights about when and how LLMs can be safely 
   {
     slug: "llmeval-aaai2024",
     title: "LLMEval: How to Evaluate Large Language Models (AAAI 2024)",
+    titleZh: "LLMEval：如何评测大语言模型（AAAI 2024）",
     date: "2024-03-24",
+    excerptZh: "AAAI 2024 基础方法论论文，系统研究「如何评测」问题——对比评价标准、标注者类型、评分方法和排序系统，2,186人参与评测20个模型。",
     excerpt:
       "Our foundational paper at AAAI 2024 systematically studies the 'how to evaluate' question — comparing evaluation criteria, annotator types, scoring methods, and ranking systems across 20 LLMs with 2,186 participants.",
     tags: ["AAAI 2024", "LLMEval", "methodology"],
@@ -185,7 +194,9 @@ These findings laid the groundwork for LLMEval-Fair and LLMEval-Med.
   {
     slug: "gaokao-2024-math-evaluation",
     title: "2024 Gaokao Math: LLM Evaluation Special Report",
+    titleZh: "2024高考数学：大语言模型评测专题报告",
     date: "2024-06-14",
+    excerptZh: "利用全新出炉的2024年高考数学真题——高度独创且保密——采用LaTeX和转义符两种Prompt格式评测主流大模型。",
     excerpt:
       "Using the freshly released 2024 Chinese Gaokao math papers — highly original and confidential — we evaluate leading LLMs with both LaTeX and escape-character prompts.",
     tags: ["Gaokao", "mathematics"],
