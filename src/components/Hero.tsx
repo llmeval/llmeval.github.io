@@ -49,7 +49,7 @@ export function Hero() {
             LLMEval is a research series by{" "}
             <span className="font-medium text-foreground">Fudan NLP Lab</span> dedicated to building
             rigorous, fair, and comprehensive evaluation frameworks for LLMs — covering 13+ academic disciplines,
-            medical AI, and 200,000+ generative questions.
+            medical AI, and 220,000+ generative questions.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -91,8 +91,8 @@ export function Hero() {
         >
           {[
             { value: "5", label: "Research Projects" },
-            { value: "50+", label: "Models Evaluated" },
-            { value: "200K+", label: "Evaluation Questions" },
+            { value: "60", label: "Models Evaluated" },
+            { value: "220K+", label: "Evaluation Questions" },
             { value: "13", label: "Academic Disciplines" },
           ].map((stat) => (
             <div key={stat.label} className="rounded-xl border border-border bg-card/50 p-4 text-center backdrop-blur">

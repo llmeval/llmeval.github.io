@@ -21,8 +21,8 @@ export default function LeaderboardPage() {
       <div className="mt-12 rounded-xl border border-border bg-card p-6">
         <h2 className="text-lg font-semibold text-foreground">About the Evaluation (LLMEval-Fair)</h2>
         <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-          Models are evaluated across 13 academic disciplines with approximately 200,000 standardized
-          generative question-answering items. Each model completes 1,000 randomly sampled questions.
+          Models are evaluated across 13 academic disciplines with a proprietary bank of 220,000
+          graduate-level generative questions. Each model completes 1,000 randomly sampled questions.
           The <strong className="text-foreground">absolute score</strong> (0–100) represents raw performance,
           while the <strong className="text-foreground">relative score</strong> measures the gap to the current
           SOTA model. Discipline scores use a 10-point scale. All evaluations use GPT-4 Turbo as the judge
