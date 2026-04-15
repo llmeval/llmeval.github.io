@@ -52,17 +52,22 @@ const columns: ColumnDef<ModelScore>[] = [
     header: "Model",
     cell: ({ row }) => (
       <div>
-        <div className="font-semibold text-foreground">{row.original.model}</div>
+        <div className="flex items-center gap-1.5">
+          <span className="font-semibold text-foreground">{row.original.model}</span>
+          <span
+            className={`inline-flex rounded-full px-1.5 py-0.5 text-[9px] font-medium leading-none ${
+              row.original.accessType === "Open-source"
+                ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                : "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400"
+            }`}
+          >
+            {row.original.accessType === "Open-source" ? "Open" : "Closed"}
+          </span>
+        </div>
         <div className="text-xs text-muted-foreground">{row.original.organization}</div>
       </div>
     ),
     size: 200,
-  },
-  {
-    accessorKey: "evalDate",
-    header: "Date",
-    cell: ({ getValue }) => <span className="text-xs text-muted-foreground">{getValue<string>()}</span>,
-    size: 80,
   },
   {
     accessorKey: "relativeScore",
@@ -117,12 +122,15 @@ const columns: ColumnDef<ModelScore>[] = [
 export function LeaderboardTable() {
   const [sorting, setSorting] = useState<SortingState>([{ id: "absoluteScore", desc: true }]);
   const [globalFilter, setGlobalFilter] = useState("");
-  const [showTop, setShowTop] = useState<number | null>(null);
+  const [showTop, setShowTop] = useState<number | null>(20);
+  const [typeFilter, setTypeFilter] = useState<string | null>(null);
 
-  const filteredData = useMemo(
-    () => (showTop ? leaderboardData.slice(0, showTop) : leaderboardData),
-    [showTop]
-  );
+  const filteredData = useMemo(() => {
+    let data = leaderboardData;
+    if (typeFilter) data = data.filter((d) => d.accessType === typeFilter);
+    if (showTop) data = data.slice(0, showTop);
+    return data;
+  }, [showTop, typeFilter]);
 
   const table = useReactTable({
     data: filteredData,
@@ -157,10 +165,24 @@ export function LeaderboardTable() {
             className="h-10 w-full rounded-lg border border-border bg-card pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent sm:w-64"
           />
         </div>
-        <div className="flex items-center gap-2">
-          {[null, 10, 20].map((n) => (
+        <div className="flex flex-wrap items-center gap-2">
+          {[null, "Open-source", "Closed-source"].map((t) => (
             <button
-              key={n ?? "all"}
+              key={t ?? "type-all"}
+              onClick={() => setTypeFilter(t)}
+              className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+                typeFilter === t
+                  ? "bg-accent text-accent-foreground"
+                  : "bg-muted text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {t ?? "All Types"}
+            </button>
+          ))}
+          <span className="mx-1 text-border">|</span>
+          {[null, 20, 30].map((n) => (
+            <button
+              key={n ?? "n-all"}
               onClick={() => setShowTop(n)}
               className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
                 showTop === n
@@ -168,7 +190,7 @@ export function LeaderboardTable() {
                   : "bg-muted text-muted-foreground hover:text-foreground"
               }`}
             >
-              {n ? `Top ${n}` : "All"}
+              {n ? `Top ${n}` : `All (${leaderboardData.length})`}
             </button>
           ))}
         </div>
@@ -219,7 +241,7 @@ export function LeaderboardTable() {
       <p className="mt-4 text-xs text-muted-foreground">
         Click column headers to sort. Absolute scores are on a 0–100 scale; discipline scores on a 0–10 scale.
         Relative scores use the SOTA model (Doubao-1.5-Thinking-Pro) as the 100% baseline.
-        Data from <a href="https://github.com/llmeval/LLMEval-Fair" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">LLMEval-Fair</a> (as of Dec 2025).
+        59 models from the full appendix of <a href="https://github.com/llmeval/LLMEval-Fair" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">LLMEval-Fair</a> (ACL 2026).
       </p>
     </div>
   );
