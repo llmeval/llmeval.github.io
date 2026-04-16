@@ -90,10 +90,10 @@ export function Hero() {
           className="mx-auto mt-20 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {[
-            { value: "5", key: "hero.stat.projects" as const },
-            { value: "60", key: "hero.stat.models" as const },
-            { value: "220K+", key: "hero.stat.questions" as const },
-            { value: "13", key: "hero.stat.disciplines" as const },
+            { value: "3", key: "hero.stat.papers" as const },
+            { value: "59", key: "hero.stat.models" as const },
+            { value: "220K", key: "hero.stat.questions" as const },
+            { value: "265", key: "hero.stat.stars" as const },
           ].map((stat) => (
             <div key={stat.key} className="rounded-xl border border-border bg-card/50 p-4 text-center backdrop-blur">
               <div className="text-2xl font-bold text-accent">{stat.value}</div>
