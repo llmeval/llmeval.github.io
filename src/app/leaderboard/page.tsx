@@ -70,10 +70,6 @@ export default function LeaderboardPage() {
         </div>
         <p className="mt-4 text-sm text-muted-foreground">
           {t("lb.submit")}{" "}
-          <a href="http://llmeval.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:text-accent/80">
-            llmeval.com
-          </a>{" "}
-          {t("lb.or")}{" "}
           <a href="mailto:mingzhang23@m.fudan.edu.cn" className="font-medium text-accent hover:text-accent/80">
             mingzhang23@m.fudan.edu.cn
           </a>.

@@ -49,11 +49,6 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="http://llmeval.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  {t("footer.platform")}
-                </a>
-              </li>
-              <li>
                 <a href="https://arxiv.org/abs/2508.05452" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                   arXiv (LLMEval-Fair)
                 </a>
