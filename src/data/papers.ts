@@ -59,7 +59,6 @@ export const papers: Paper[] = [
     arxiv: "https://arxiv.org/abs/2508.05452",
     github: "https://github.com/llmeval/LLMEval-Fair",
     stars: 37,
-    project: "http://llmeval.com/",
     tags: ["evaluation", "fairness", "robustness", "generative QA", "longitudinal study"],
     featured: true,
   },

@@ -21,7 +21,7 @@ const dict = {
     "home.featured.desc": "Our latest publications in LLM evaluation.",
     "home.viewAll": "View all papers",
     "home.cta.title": "Participate in LLMEval",
-    "home.cta.desc": "LLMEval is open to the public. Institutional evaluation requires certification. Register on our platform and contact the administrators for verification.",
+    "home.cta.desc": "LLMEval is open to the public. Feel free to explore our code and data on GitHub, or contact us for collaboration.",
     "home.cta.apply": "Apply for Evaluation",
     "home.cta.github": "View on GitHub",
 
@@ -45,8 +45,8 @@ const dict = {
     "lb.about.med": "LLMEval-Med (EMNLP 2025): 2,996 questions from real electronic health records and expert-designed clinical scenarios, across 5 dimensions (MK, MLU, MR, MSE, MTG). Usability rate (%) = proportion of responses scoring 4+ (automated, 0-5) or 5+ (MTG, human-evaluated, 0-7). Human-machine agreement: 92.36%.",
     "lb.about.eval1": "LLMEval-1 (AAAI 2024): 17 categories, 453 questions, five dimensions (correctness, fluency, informativeness, logic, harmlessness, 0-3 scale). 2,186 annotators contributed 243,337 annotations. Pairwise comparison (0-1) also provided.",
     "lb.about.eval2": "LLMEval-2 (AAAI 2024): 12 disciplines, 480 questions, objective (max 5 pts) + subjective (max 14 pts). Total normalized to 0-100.",
-    "lb.submit": "Want to submit your model? Register at",
-    "lb.or": "or contact us at",
+    "lb.submit": "Want to submit your model for evaluation? Contact us at",
+    "lb.or": "",
     "lb.search": "Search models...",
     "lb.allTypes": "All Types",
 
@@ -88,7 +88,7 @@ const dict = {
     "home.featured.desc": "LLM评测领域的最新发表成果。",
     "home.viewAll": "查看全部论文",
     "home.cta.title": "参与 LLMEval 评测",
-    "home.cta.desc": "LLMEval 已向公众开放。机构评测需认证，请在平台注册账户，联系管理员认证并申请评测权限。",
+    "home.cta.desc": "LLMEval 已向公众开放，欢迎在 GitHub 上查看我们的代码和数据，或联系我们进行合作。",
     "home.cta.apply": "申请评测",
     "home.cta.github": "访问 GitHub",
 
@@ -112,8 +112,8 @@ const dict = {
     "lb.about.med": "LLMEval-Med（EMNLP 2025）：2,996道来自真实电子病历和临床场景的题目，覆盖5个维度（MK、MLU、MR、MSE、MTG）。可用率(%) = 自动评测4分以上(0-5量表)或人工评测5分以上(0-7量表，MTG)的比例。人机一致率92.36%。",
     "lb.about.eval1": "LLMEval-1（AAAI 2024）：17大类、453题，五维评测（正确性、流畅性、信息量、逻辑性、无害性，0-3分）。2,186名公众标注者贡献243,337条标注，另提供对比评分（0-1）。",
     "lb.about.eval2": "LLMEval-2（AAAI 2024）：12个学科、480题，客观题（最高5分）+主观题（最高14分），总分归一化到0-100。",
-    "lb.submit": "想提交模型进行评测？请在以下平台注册",
-    "lb.or": "或联系我们",
+    "lb.submit": "想提交模型进行评测？请联系我们：",
+    "lb.or": "",
     "lb.search": "搜索模型...",
     "lb.allTypes": "全部类型",
 

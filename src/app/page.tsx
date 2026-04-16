@@ -48,20 +48,12 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-20 text-center sm:px-6">
           <h2 className="text-3xl font-bold text-foreground">{t("home.cta.title")}</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">{t("home.cta.desc")}</p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="http://llmeval.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-xl bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
-            >
-              {t("home.cta.apply")}
-            </a>
+          <div className="mt-8 flex justify-center">
             <a
               href="https://github.com/llmeval"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-xl border border-border bg-card px-6 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+              className="inline-flex h-11 items-center justify-center rounded-xl bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
             >
               {t("home.cta.github")}
             </a>
