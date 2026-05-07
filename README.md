@@ -63,4 +63,4 @@ npm run build   # generates static site in out/
 
 - Email: mingzhang23@m.fudan.edu.cn
 - WeChat: zanyingluan
-- Platform: [llmeval.com](http://llmeval.com/)
+- Platform: [llmeval.com](https://llmeval.com/)

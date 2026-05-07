@@ -56,7 +56,7 @@ As of December 2025, **nearly 60 models** have been evaluated from major organiz
 
 - **Paper**: [arXiv:2508.05452](https://arxiv.org/abs/2508.05452)
 - **Code & Data**: [GitHub](https://github.com/llmeval/LLMEval-Fair)
-- **Evaluation Platform**: [llmeval.com](http://llmeval.com/)
+- **Evaluation Platform**: [llmeval.com](https://llmeval.com/)
     `.trim(),
   },
   {
