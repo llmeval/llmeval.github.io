@@ -17,7 +17,13 @@ export interface Paper {
   stars?: number;
   tags: string[];
   featured?: boolean;
-  relatedRepos?: { name: string; url: string; description: string; stars?: number }[];
+  relatedRepos?: {
+    name: string;
+    url: string;
+    description: string;
+    stars?: number;
+    hfUrl?: string;
+  }[];
 }
 
 export const papers: Paper[] = [
@@ -58,6 +64,7 @@ export const papers: Paper[] = [
       "LLMEval-Fair addresses robustness and fairness concerns in LLM evaluation through a 30-month longitudinal study. Built on a proprietary bank of 220,000 graduate-level questions across 13 academic disciplines, it dynamically samples unseen test sets for each evaluation run. Its automated pipeline ensures integrity via contamination-resistant data curation, a novel anti-cheating architecture, and a calibrated LLM-as-a-judge process achieving 90% agreement with human experts. A study of nearly 60 leading models reveals performance ceilings and exposes data contamination vulnerabilities undetectable by static benchmarks.",
     arxiv: "https://arxiv.org/abs/2508.05452",
     github: "https://github.com/llmeval/LLMEval-Fair",
+    huggingface: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-Fair",
     stars: 37,
     tags: ["evaluation", "fairness", "robustness", "generative QA", "longitudinal study"],
     featured: true,
@@ -94,7 +101,7 @@ export const papers: Paper[] = [
     arxiv: "https://arxiv.org/abs/2506.04078",
     github: "https://github.com/llmeval/LLMEval-Med",
     stars: 25,
-    huggingface: "https://huggingface.co/datasets/HuayuSha/LLMeval-Med",
+    huggingface: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med",
     tags: ["medical", "clinical", "physician validation", "LLM-as-Judge"],
     featured: true,
   },
@@ -128,12 +135,14 @@ export const papers: Paper[] = [
         url: "https://github.com/llmeval/LLMEval-1",
         stars: 113,
         description: "Phase I dataset: 17 categories, 453 questions, 2,186 annotators for Chinese LLM evaluation",
+        hfUrl: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-1",
       },
       {
         name: "LLMEval-2",
         url: "https://github.com/llmeval/LLMEval-2",
         stars: 71,
         description: "Phase II dataset: professional domain evaluation across 12 academic disciplines, 480 questions",
+        hfUrl: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-2",
       },
     ],
   },

@@ -115,7 +115,7 @@ Rather than simple answer matching, LLMEval-Med uses an **automated evaluation p
 The evaluation reveals important insights about when and how LLMs can be safely deployed in clinical settings.
 
 - **Paper**: [arXiv:2506.04078](https://arxiv.org/abs/2506.04078)
-- **Dataset**: [HuggingFace](https://huggingface.co/datasets/HuayuSha/LLMeval-Med)
+- **Dataset**: [HuggingFace](https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med)
 - **Code**: [GitHub](https://github.com/llmeval/LLMEval-Med)
     `.trim(),
   },

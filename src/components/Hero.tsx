@@ -49,8 +49,7 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-            {t("hero.desc", { lab: "" })}
-            {/* inject lab name as styled span */}
+            {t("hero.desc", { lab: t("hero.lab") })}
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
