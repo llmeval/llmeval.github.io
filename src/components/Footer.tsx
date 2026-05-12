@@ -54,7 +54,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://huggingface.co/datasets/HuayuSha/LLMeval-Med" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <a href="https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                   HuggingFace (LLMEval-Med)
                 </a>
               </li>
