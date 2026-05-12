@@ -89,7 +89,7 @@ export function Hero() {
           className="mx-auto mt-20 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {[
-            { value: "3", key: "hero.stat.papers" as const },
+            { value: "4", key: "hero.stat.papers" as const },
             { value: "59", key: "hero.stat.models" as const },
             { value: "220K", key: "hero.stat.questions" as const },
             { value: "265", key: "hero.stat.stars" as const },

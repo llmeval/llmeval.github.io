@@ -13,6 +13,78 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "llmeval-logic-public-release",
+    title: "LLMEval-Logic: Solver-Verified Chinese Logic Reasoning Benchmark (80% Public Release)",
+    titleZh: "LLMEval-Logic：经求解器验证的中文逻辑推理评测基准（公开 80%）",
+    date: "2026-05-12",
+    excerptZh: "LLMEval-Logic 是一个用 Z3 求解器和人工 rubric 双重审计、并经过对抗强化的中文逻辑推理评测基准。本次开源 80% 题目（197 Base + 152 Hard + 197 rubric），剩余 20% 由复旦 NLP 实验室自留为私有抗污染测试集。",
+    excerpt:
+      "LLMEval-Logic is a Chinese logical reasoning benchmark double-audited by the Z3 SMT solver and human rubrics, and toughened via an adversarial-hardening agent loop. We are releasing 80% of the items (197 Base + 152 Hard + 197 rubrics); the remaining 20% is held out as a private contamination-resistant test set maintained by Fudan NLP Lab.",
+    tags: ["LLMEval-Logic", "logical reasoning", "Z3", "contamination-resistant"],
+    author: "LLMEval Team",
+    content: `
+# LLMEval-Logic: A Solver-Verified Chinese Benchmark for Logical Reasoning of LLMs with Adversarial Hardening
+
+We are releasing **LLMEval-Logic**, the logic-reasoning entry in the LLMEval series. The benchmark was built through a three-stage audit pipeline and is published in two paired splits — a Z3-verified single-question split and a multi-question adversarially hardened split.
+
+## Why another logic benchmark?
+
+Existing logical reasoning benchmarks tend to fall into one of two failure modes:
+
+1. **Template-leak.** Items are generated forward from formulas, so models that memorise the templates do well on the test set but generalise poorly to natural text.
+2. **Easy-answer drift.** Once a model can pattern-match a few answer keywords, the benchmark stops differentiating frontier reasoners.
+
+LLMEval-Logic is designed to attack both failure modes.
+
+## Three-stage audit pipeline
+
+**Stage (a) — forward authoring.** Annotators write items *forward* from real-world situations (e.g. roommate scheduling, project sign-off, library borrowing) rather than templating *backward* from formulas. Each item carries Chinese natural-language premises and a question.
+
+**Stage (b) — solver + rubric double audit.** For every Base item we ship a gold formalisation (parameters / premise / question in a solver-parseable JSON schema). The translation is double-checked by:
+- **Z3 SMT solver** running three judgments (\`possible / necessary / enumerate_models\`).
+- **A hand-written atom-level rubric** organised into \`logical_relation\` / \`stated_constraint\` / \`query_alignment\` groups, so we can score whether a candidate FL preserves the original logical relations, constraints, and query — not just whether the final answer happens to match.
+
+**Stage (c) — closed-loop adversarial hardening.** A five-role agent workflow (Decider / Proposal / Review / Answering / Verification) rewrites high-accuracy Base items into harder multi-question variants under six structured strategies (branching, effective distractors, explicit uncertainty, set-valued output, counterfactual variants, alias/coreference shifts). A rewrite is admitted only when it passes both Review and Verification, producing the Hard split.
+
+## What's in the public release
+
+- **LLMEval-Logic-Base** — 197 single-question items (PL + FOL) with Z3-verified answers, gold formalisations, and atom-level rubrics.
+- **LLMEval-Logic-Hard** — 152 multi-question items (~752 sub-questions) covering closed-world enumeration / counting / uniqueness / alternative-solution / counterfactual reasoning.
+- **Rubrics** — 197 per-problem checklists (one per Base item), each containing atomic yes/no statements that can be answered jointly by Z3 and an LLM judge.
+
+The public 80% is produced by deterministic stratified sampling with \`seed=2026\` — Base is stratified by \`(logictype, label_type)\`, Hard by sub-question-count bucket — so the public split preserves the full corpus's distribution and the public numbers stay comparable with the paper's full-corpus numbers.
+
+| | Full corpus | Public (this release) | Private holdout |
+|---|---:|---:|---:|
+| LLMEval-Logic-Base items | 246 | **197** | 49 |
+| LLMEval-Logic-Hard items | 190 | **152** | 38 |
+| Hard sub-questions | 938 | ~752 | ~186 |
+| Per-problem rubric files | 246 | **197** | 49 |
+
+## Headline numbers (paper, full corpus)
+
+Three independent runs of **14 frontier LLMs** under thinking / no-thinking configurations:
+
+| Model | Base Item Acc. | Hard Item Acc. | Hard Sub-Q Acc. |
+|---|---:|---:|---:|
+| **Gemini 3.1 Pro** (thinking) | 74.0 ± 1.2 | **37.5 ± 3.8** | 76.0 ± 0.6 |
+| Claude Opus 4.6 (thinking) | 68.7 ± 3.2 | 36.7 ± 2.6 | 76.6 ± 1.4 |
+| Claude Opus 4.6 (no-think) | 69.0 ± 1.2 | 36.0 ± 2.4 | 74.4 ± 1.2 |
+| GPT-5.4 Pro (thinking) | 71.8 ± 0.9 | 32.6 ± 4.3 | 68.4 ± 3.1 |
+
+Even with the strongest reasoner, **Hard Item Accuracy tops out at 37.5%** — there is plenty of room left for frontier reasoning research.
+
+## Why a 20% private holdout?
+
+Following the contamination-resistant tradition of [LLMEval-Fair](/papers#llmeval-fair), we hold out 49 Base + 38 Hard items (and their rubrics) as a private contamination-resistant test set maintained by Fudan NLP Lab. The holdout backs the official **LLMEval-Logic leaderboard** at [llmeval.com](https://llmeval.com/) and supports contamination audits years after the public release.
+
+To submit a model for official evaluation against the holdout, please contact <mingzhang23@m.fudan.edu.cn>.
+
+- **Code & one-command pipeline**: <https://github.com/llmeval/LLMEval-Logic>
+- **Public 80% dataset**: <https://huggingface.co/datasets/llmeval-fdu/LLMEval-Logic>
+    `.trim(),
+  },
+  {
     slug: "llmeval-fair-accepted-acl2026",
     title: "LLMEval-Fair Accepted to ACL 2026 Main Conference",
     titleZh: "LLMEval-Fair 被 ACL 2026 主会录用",

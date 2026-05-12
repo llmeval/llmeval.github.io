@@ -28,6 +28,30 @@ export interface Paper {
 
 export const papers: Paper[] = [
   {
+    id: "llmeval-logic",
+    title:
+      "LLMEval-Logic: A Solver-Verified Chinese Benchmark for Logical Reasoning of LLMs with Adversarial Hardening",
+    titleZh: "LLMEval-Logic：经求解器验证、含对抗强化的中文逻辑推理评测基准",
+    authors: ["LLMEval Team, Fudan NLP Lab"],
+    authorNotes: "Anonymous authors during peer review",
+    venue: "Under submission",
+    year: 2026,
+    abstractZh: "LLMEval-Logic 是一个中文逻辑推理评测基准，构造采用三阶段审计流水线：(a) 标注员从真实情境正向撰写题目而非从公式反向模板化；(b) 用专家手工编写的 rubric 与 Z3 求解器双重审计自然语言→形式语言的翻译；(c) 通过闭环对抗强化 Agent 工作流淘汰过于简单的样本。数据集由两个配对子集组成：LLMEval-Logic-Base（命题逻辑与一阶逻辑单问题题目，附 Z3 验证答案、金标准形式化与 atom 级 rubric）以及 LLMEval-Logic-Hard（多问题/子问题题目，覆盖闭世界枚举/计数/唯一性/替代解/反事实推理）。在 14 个前沿大模型 thinking/no-thinking 配置上做了三次独立实验，Hard 子集最强模型 Item Accuracy 仅 37.5%，为前沿推理研究留足空间。仿照 LLMEval-Fair 的抗污染做法，公开发布 80% 题目，剩余 20% 由复旦 NLP 实验室自留为私有抗污染测试集。",
+    abstract:
+      "LLMEval-Logic is a Chinese logical reasoning benchmark built through a three-stage audit pipeline: (a) annotators authored items forward from real-world stories rather than templating backward from formulas, (b) a hand-written rubric checklist together with the Z3 SMT solver double-audited every natural-language → first-order-logic translation, and (c) a closed-loop adversarial hardening agent workflow discarded items that turned out to be too easy. The dataset has two paired splits — LLMEval-Logic-Base (single-question PL & FOL items with Z3-verified answers, gold formalisations and atom-level NL→FL rubrics) and LLMEval-Logic-Hard (multi-question / sub-question items covering enumeration / counting / uniqueness / alternative-solution / counterfactual reasoning). Three independent runs of 14 frontier LLMs under thinking / no-thinking configurations show the strongest model reaches only 37.5% Item Accuracy on Hard, leaving substantial headroom for frontier reasoning research. Following the contamination-resistant tradition of LLMEval-Fair, only 80% of the corpus is released publicly; the remaining 20% is held out as a private contamination-resistant test set maintained by Fudan NLP Lab.",
+    github: "https://github.com/llmeval/LLMEval-Logic",
+    huggingface: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-Logic",
+    tags: [
+      "logical reasoning",
+      "propositional logic",
+      "first-order logic",
+      "Z3 / SMT",
+      "adversarial hardening",
+      "contamination-resistant",
+    ],
+    featured: true,
+  },
+  {
     id: "llmeval-fair",
     title:
       "LLMEval-Fair: A Large-Scale Longitudinal Study on Robust and Fair Evaluation of Large Language Models",
