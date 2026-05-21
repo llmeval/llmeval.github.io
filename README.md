@@ -6,7 +6,7 @@ Official website for the **LLMEval** research series by [Fudan NLP Lab](https://
 
 | Paper | Venue | GitHub | Data |
 |-------|-------|--------|------|
-| [LLMEval-Logic](https://github.com/llmeval/LLMEval-Logic) | Under submission | [LLMEval-Logic](https://github.com/llmeval/LLMEval-Logic) | [HF](https://huggingface.co/datasets/llmeval-fdu/LLMEval-Logic) |
+| [LLMEval-Logic](https://arxiv.org/abs/2605.19597) | **arXiv 2026** | [LLMEval-Logic](https://github.com/llmeval/LLMEval-Logic) | [HF](https://huggingface.co/datasets/llmeval-fdu/LLMEval-Logic) |
 | [LLMEval-Fair](https://arxiv.org/abs/2508.05452) | **ACL 2026** Main | [LLMEval-Fair](https://github.com/llmeval/LLMEval-Fair) | [HF](https://huggingface.co/datasets/llmeval-fdu/LLMEval-Fair) |
 | [LLMEval-Med](https://arxiv.org/abs/2506.04078) | **EMNLP 2025** Findings | [LLMEval-Med](https://github.com/llmeval/LLMEval-Med) | [HF](https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med) |
 | [LLMEval](https://arxiv.org/abs/2312.07398) | **AAAI 2024** | [LLMEval-1](https://github.com/llmeval/LLMEval-1) · [LLMEval-2](https://github.com/llmeval/LLMEval-2) | [HF-1](https://huggingface.co/datasets/llmeval-fdu/LLMEval-1) · [HF-2](https://huggingface.co/datasets/llmeval-fdu/LLMEval-2) |
