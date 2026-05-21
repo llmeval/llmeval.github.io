@@ -5,10 +5,12 @@ import { LeaderboardTable } from "@/components/LeaderboardTable";
 import { Eval1Table } from "@/components/Eval1Table";
 import { Eval2Table } from "@/components/Eval2Table";
 import { MedTable } from "@/components/MedTable";
+import { LogicTable } from "@/components/LogicTable";
 import { useLanguage } from "@/lib/i18n";
 import type { DictKey } from "@/lib/dict";
 
 const tabs: { id: string; label: string; badge: string; descKey: DictKey }[] = [
+  { id: "logic", label: "LLMEval-Logic", badge: "arXiv 2026", descKey: "lb.logic.desc" },
   { id: "fair", label: "LLMEval-Fair", badge: "ACL 2026", descKey: "lb.fair.desc" },
   { id: "med", label: "LLMEval-Med", badge: "EMNLP 2025", descKey: "lb.med.desc" },
   { id: "eval1", label: "LLMEval-1", badge: "AAAI 2024", descKey: "lb.eval1.desc" },
@@ -17,7 +19,7 @@ const tabs: { id: string; label: string; badge: string; descKey: DictKey }[] = [
 
 export default function LeaderboardPage() {
   const { t } = useLanguage();
-  const [activeTab, setActiveTab] = useState("fair");
+  const [activeTab, setActiveTab] = useState("logic");
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -55,6 +57,7 @@ export default function LeaderboardPage() {
         {t(tabs.find((tb) => tb.id === activeTab)!.descKey)}
       </p>
 
+      {activeTab === "logic" && <LogicTable />}
       {activeTab === "fair" && <LeaderboardTable />}
       {activeTab === "med" && <MedTable />}
       {activeTab === "eval1" && <Eval1Table />}
@@ -63,6 +66,7 @@ export default function LeaderboardPage() {
       <div className="mt-12 rounded-xl border border-border bg-card p-6">
         <h2 className="text-lg font-semibold text-foreground">{t("lb.about")}</h2>
         <div className="mt-3 space-y-3 text-sm text-muted-foreground leading-relaxed">
+          <p><strong className="text-foreground">LLMEval-Logic</strong> — {t("lb.about.logic")}</p>
           <p><strong className="text-foreground">LLMEval-Fair</strong> — {t("lb.about.fair")}</p>
           <p><strong className="text-foreground">LLMEval-Med</strong> — {t("lb.about.med")}</p>
           <p><strong className="text-foreground">LLMEval-1</strong> — {t("lb.about.eval1")}</p>
