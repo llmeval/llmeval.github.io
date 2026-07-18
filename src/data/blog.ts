@@ -14,18 +14,18 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "llmeval-logic-public-release",
-    title: "LLMEval-Logic: Solver-Verified Chinese Logic Reasoning Benchmark on arXiv",
-    titleZh: "LLMEval-Logic：经求解器验证的中文逻辑推理评测基准（arXiv 发布）",
+    title: "LLMEval-Logic Is Now Open Source: Code, Data, and Leaderboard",
+    titleZh: "LLMEval-Logic 现已开源：代码、数据与排行榜",
     date: "2026-05-21",
-    excerptZh: "LLMEval-Logic 是一个用 Z3 求解器和人工 rubric 双重审计、并经过对抗强化的中文逻辑推理评测基准，论文已在 arXiv 公开。本次开源 80% 题目（197 Base + 154 Hard + 197 rubric），剩余 20% 由复旦 NLP 实验室自留为私有抗污染测试集。",
+    excerptZh: "LLMEval-Logic 是一个用 Z3 求解器和人工 rubric 双重审计、并经过对抗强化的中文逻辑推理评测基准。代码、完整评测流水线及 80% 数据现已开源（196 Base + 154 Hard + 196 rubric），剩余 20% 由复旦 NLP 实验室自留为私有抗污染测试集。",
     excerpt:
-      "LLMEval-Logic is a Chinese logical reasoning benchmark double-audited by the Z3 SMT solver and human rubrics, and toughened via an adversarial-hardening agent loop. The paper is now on arXiv, alongside an 80% public release (197 Base + 154 Hard + 197 rubrics); the remaining 20% is held out as a private contamination-resistant test set maintained by Fudan NLP Lab.",
-    tags: ["LLMEval-Logic", "logical reasoning", "Z3", "contamination-resistant"],
+      "LLMEval-Logic is a Chinese logical reasoning benchmark double-audited by the Z3 SMT solver and human rubrics, and toughened via an adversarial-hardening agent loop. The code, complete evaluation pipeline, and 80% of the data are now open source (196 Base + 154 Hard + 196 rubrics); the remaining 20% is held out as a private contamination-resistant test set maintained by Fudan NLP Lab.",
+    tags: ["LLMEval-Logic", "open source", "logical reasoning", "Z3", "contamination-resistant"],
     author: "LLMEval Team",
     content: `
 # LLMEval-Logic: A Solver-Verified Chinese Benchmark for Logical Reasoning of LLMs with Adversarial Hardening
 
-**LLMEval-Logic** is now on arXiv ([arXiv:2605.19597](https://arxiv.org/abs/2605.19597)). It is the logic-reasoning entry in the LLMEval series — built through a three-stage audit pipeline and published in two paired splits: a Z3-verified single-question split and a multi-question adversarially hardened split.
+**LLMEval-Logic** is now open source on [GitHub](https://github.com/llmeval/LLMEval-Logic), with the paper available on [arXiv](https://arxiv.org/abs/2605.19597). It is the logic-reasoning entry in the LLMEval series — built through a three-stage audit pipeline and published in two paired splits: a Z3-verified single-question split and a multi-question adversarially hardened split.
 
 ## Why another logic benchmark?
 
@@ -48,18 +48,16 @@ LLMEval-Logic is designed to attack both failure modes.
 
 ## What's in the public release
 
-- **LLMEval-Logic-Base** — 197 single-question items (PL + FOL) with Z3-verified answers, gold formalisations, and atom-level rubrics.
+- **LLMEval-Logic-Base** — 196 single-question items (PL + FOL) with Z3-verified answers, gold formalisations, and atom-level rubrics.
 - **LLMEval-Logic-Hard** — 154 multi-question items (766 sub-questions) covering closed-world enumeration / counting / uniqueness / alternative-solution / counterfactual reasoning.
-- **Rubrics** — 197 per-problem checklists (one per Base item), each containing atomic yes/no statements that can be answered jointly by Z3 and an LLM judge.
-
-The public 80% is produced by deterministic stratified sampling with \`seed=2026\` — Base is stratified by \`(logictype, label_type)\`, Hard by sub-question-count bucket — so the public split preserves the full corpus's distribution and the public numbers stay comparable with the paper's full-corpus numbers.
+- **Rubrics** — 196 per-problem checklists (one per Base item), each containing atomic yes/no statements that can be answered jointly by Z3 and an LLM judge.
 
 | | Full corpus | Public (this release) | Private holdout |
 |---|---:|---:|---:|
-| LLMEval-Logic-Base items | 246 | **197** | 49 |
+| LLMEval-Logic-Base items | 246 | **196** | 50 |
 | LLMEval-Logic-Hard items | 190 | **154** | 36 |
 | Hard sub-questions | 938 | **766** | 172 |
-| Per-problem rubric files | 246 | **197** | 49 |
+| Per-problem rubric files | 246 | **196** | 50 |
 
 ## Headline numbers (paper, full corpus)
 
@@ -76,7 +74,7 @@ Even with the strongest reasoner, **Hard Item Accuracy tops out at 37.5%** — t
 
 ## Why a 20% private holdout?
 
-Following the contamination-resistant tradition of [LLMEval-Fair](/papers#llmeval-fair), we hold out 49 Base + 36 Hard items (and their rubrics) as a private contamination-resistant test set maintained by Fudan NLP Lab. The holdout backs the official **LLMEval-Logic leaderboard** at [llmeval.com](https://llmeval.com/) and supports contamination audits years after the public release.
+Following the contamination-resistant tradition of [LLMEval-Fair](/papers#llmeval-fair), we hold out 50 Base + 36 Hard items (and their rubrics) as a private contamination-resistant test set maintained by Fudan NLP Lab. The holdout backs the official **LLMEval-Logic leaderboard** at [llmeval.com](https://llmeval.com/) and supports contamination audits years after the public release.
 
 To submit a model for official evaluation against the holdout, please contact <mingzhang23@m.fudan.edu.cn>.
 

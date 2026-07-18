@@ -58,6 +58,7 @@ export const papers: Paper[] = [
       "LLMEval-Logic is a Chinese logical reasoning benchmark built through a three-stage audit pipeline: (a) annotators authored items forward from real-world stories rather than templating backward from formulas, (b) a hand-written rubric checklist together with the Z3 SMT solver double-audited every natural-language → first-order-logic translation, and (c) a closed-loop adversarial hardening agent workflow discarded items that turned out to be too easy. The dataset has two paired splits — LLMEval-Logic-Base (single-question PL & FOL items with Z3-verified answers, gold formalisations and atom-level NL→FL rubrics) and LLMEval-Logic-Hard (multi-question / sub-question items covering enumeration / counting / uniqueness / alternative-solution / counterfactual reasoning). Three independent runs of 14 frontier LLMs under thinking / no-thinking configurations show the strongest model reaches only 37.5% Item Accuracy on Hard, leaving substantial headroom for frontier reasoning research. Following the contamination-resistant tradition of LLMEval-Fair, only 80% of the corpus is released publicly; the remaining 20% is held out as a private contamination-resistant test set maintained by Fudan NLP Lab.",
     arxiv: "https://arxiv.org/abs/2605.19597",
     github: "https://github.com/llmeval/LLMEval-Logic",
+    stars: 11,
     huggingface: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-Logic",
     tags: [
       "logical reasoning",
@@ -107,7 +108,7 @@ export const papers: Paper[] = [
     arxiv: "https://arxiv.org/abs/2508.05452",
     github: "https://github.com/llmeval/LLMEval-Fair",
     huggingface: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-Fair",
-    stars: 37,
+    stars: 40,
     tags: ["evaluation", "fairness", "robustness", "generative QA", "longitudinal study"],
     featured: true,
   },
@@ -142,7 +143,7 @@ export const papers: Paper[] = [
       "LLMEval-Med is a physician-validated benchmark for evaluating LLMs on real-world clinical tasks. It covers five core medical areas (Medical Knowledge, Language Understanding, Reasoning, Ethics & Safety, Text Generation) with 2,996 questions from real electronic health records and expert-designed clinical scenarios. An automated evaluation pipeline with expert-developed checklists is validated through human-machine agreement analysis. 13 LLMs across specialized, open-source, and closed-source categories are evaluated.",
     arxiv: "https://arxiv.org/abs/2506.04078",
     github: "https://github.com/llmeval/LLMEval-Med",
-    stars: 25,
+    stars: 28,
     huggingface: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med",
     tags: ["medical", "clinical", "physician validation", "LLM-as-Judge"],
     featured: true,
@@ -175,7 +176,7 @@ export const papers: Paper[] = [
       {
         name: "LLMEval-1",
         url: "https://github.com/llmeval/LLMEval-1",
-        stars: 113,
+        stars: 114,
         description: "Phase I dataset: 17 categories, 453 questions, 2,186 annotators for Chinese LLM evaluation",
         hfUrl: "https://huggingface.co/datasets/llmeval-fdu/LLMEval-1",
       },
@@ -199,7 +200,7 @@ export const papers: Paper[] = [
     abstract:
       "This evaluation utilizes the 2024 Chinese National College Entrance Examination (Gaokao) mathematics papers as a benchmark for large language models. Fresh exam questions with high originality and confidentiality make them an excellent test set. The evaluation covers both New Paper I and New Paper II, testing models with both LaTeX and escape-character formatted prompts to reveal sensitivity to prompt formatting in mathematical contexts.",
     github: "https://github.com/llmeval/Llmeval-Gaokao2024-Math",
-    stars: 19,
+    stars: 21,
     tags: ["mathematics", "Gaokao", "prompt format"],
     featured: false,
   },

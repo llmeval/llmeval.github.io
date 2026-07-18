@@ -92,7 +92,7 @@ export function Hero() {
             { value: "5", key: "hero.stat.papers" as const },
             { value: "59", key: "hero.stat.models" as const },
             { value: "220K", key: "hero.stat.questions" as const },
-            { value: "265", key: "hero.stat.stars" as const },
+            { value: "285+", key: "hero.stat.stars" as const },
           ].map((stat) => (
             <div key={stat.key} className="rounded-xl border border-border bg-card/50 p-4 text-center backdrop-blur">
               <div className="text-2xl font-bold text-accent">{stat.value}</div>
