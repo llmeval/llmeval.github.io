@@ -14,43 +14,6 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="mx-auto max-w-6xl px-4 pt-12 sm:px-6">
-        <div className="relative overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-card to-card p-6 sm:p-8">
-          <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
-          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <span className="inline-flex rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-                {t("home.logic.badge")}
-              </span>
-              <h2 className="mt-4 text-2xl font-bold text-foreground sm:text-3xl">
-                {t("home.logic.title")}
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                {t("home.logic.desc")}
-              </p>
-            </div>
-            <div className="flex shrink-0 flex-wrap gap-3">
-              <a
-                href="https://github.com/llmeval/LLMEval-Logic"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-accent px-5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
-              >
-                {t("home.logic.github")}
-              </a>
-              <a
-                href="https://huggingface.co/datasets/llmeval-fdu/LLMEval-Logic"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-border bg-card px-5 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
-              >
-                {t("home.logic.dataset")}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="mb-10 flex items-end justify-between">
           <div>
